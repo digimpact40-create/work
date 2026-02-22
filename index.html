@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="2026년 한국 여자아이돌 비주얼 TOP 20 순위 - 가장 아름다운 K-POP 여자 아이돌 랭킹">
+    <title>🇰🇷 한국 여자아이돌 비주얼 TOP 20 | 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a1a;
+            --bg-secondary: #12122a;
+            --bg-card: rgba(255, 255, 255, 0.04);
+            --bg-card-hover: rgba(255, 255, 255, 0.08);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.4);
+            --accent-pink: #ff2d78;
+            --accent-purple: #8b5cf6;
+            --accent-blue: #3b82f6;
+            --accent-cyan: #06b6d4;
+            --gold: #ffd700;
+            --silver: #c0c0c0;
+            --bronze: #cd7f32;
+            --border-glow: rgba(139, 92, 246, 0.3);
+            --card-radius: 20px;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', 'Outfit', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ===== Background Effects ===== */
+        .bg-effects {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .bg-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.15;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .bg-orb:nth-child(1) {
+            width: 600px;
+            height: 600px;
+            background: var(--accent-pink);
+            top: -200px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .bg-orb:nth-child(2) {
+            width: 500px;
+            height: 500px;
+            background: var(--accent-purple);
+            top: 40%;
+            right: -150px;
+            animation-delay: -7s;
+        }
+
+        .bg-orb:nth-child(3) {
+            width: 400px;
+            height: 400px;
+            background: var(--accent-cyan);
+            bottom: -100px;
+            left: 30%;
+            animation-delay: -14s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            25% {
+                transform: translate(50px, -30px) scale(1.05);
+            }
+
+            50% {
+                transform: translate(-20px, 40px) scale(0.95);
+            }
+
+            75% {
+                transform: translate(30px, 20px) scale(1.02);
+            }
+        }
+
+        /* ===== Particle Effect ===== */
+        .particles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: sparkle linear infinite;
+        }
+
+        @keyframes sparkle {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-10vh) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* ===== Main Container ===== */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* ===== Header Section ===== */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .date-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            background: linear-gradient(135deg, rgba(255, 45, 120, 0.15), rgba(139, 92, 246, 0.15));
+            border: 1px solid rgba(255, 45, 120, 0.3);
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--accent-pink);
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
+        }
+
+        .date-badge .calendar-icon {
+            font-size: 16px;
+        }
+
+        .header h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #ff2d78, #8b5cf6, #06b6d4, #ff2d78);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 5s ease infinite;
+            line-height: 1.3;
+            margin-bottom: 16px;
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .header .subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* ===== Criteria Section ===== */
+        .criteria-section {
+            margin-bottom: 60px;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .criteria-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: var(--card-radius);
+            padding: 32px;
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .criteria-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-pink), var(--accent-purple), var(--accent-cyan));
+        }
+
+        .criteria-card h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .criteria-card h2 .icon {
+            font-size: 24px;
+        }
+
+        .criteria-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+
+        .criteria-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        .criteria-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(139, 92, 246, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .criteria-item .num {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            min-width: 28px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .criteria-item .text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .criteria-item .text strong {
+            color: var(--text-primary);
+        }
+
+        /* ===== Idol Cards ===== */
+        .idol-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .idol-card {
+            display: grid;
+            grid-template-columns: auto 220px 1fr;
+            align-items: center;
+            gap: 0;
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: var(--card-radius);
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            transition: var(--transition);
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .idol-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-glow);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.15);
+        }
+
+        /* Top 3 special styles */
+        .idol-card[data-rank="1"] {
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+
+        .idol-card[data-rank="1"]:hover {
+            border-color: rgba(255, 215, 0, 0.6);
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.15);
+        }
+
+        .idol-card[data-rank="2"] {
+            border-color: rgba(192, 192, 192, 0.3);
+        }
+
+        .idol-card[data-rank="2"]:hover {
+            border-color: rgba(192, 192, 192, 0.5);
+            box-shadow: 0 20px 60px rgba(192, 192, 192, 0.1);
+        }
+
+        .idol-card[data-rank="3"] {
+            border-color: rgba(205, 127, 50, 0.3);
+        }
+
+        .idol-card[data-rank="3"]:hover {
+            border-color: rgba(205, 127, 50, 0.5);
+            box-shadow: 0 20px 60px rgba(205, 127, 50, 0.1);
+        }
+
+        /* Rank Badge */
+        .rank-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px 20px;
+            min-width: 80px;
+        }
+
+        .rank-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 22px;
+            font-weight: 800;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+        }
+
+        .idol-card[data-rank="1"] .rank-badge {
+            background: linear-gradient(135deg, #ffd700, #ffaa00);
+            color: #1a1a00;
+            border: none;
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+            font-size: 24px;
+        }
+
+        .idol-card[data-rank="2"] .rank-badge {
+            background: linear-gradient(135deg, #e0e0e0, #a0a0a0);
+            color: #1a1a1a;
+            border: none;
+            box-shadow: 0 4px 20px rgba(192, 192, 192, 0.3);
+            font-size: 24px;
+        }
+
+        .idol-card[data-rank="3"] .rank-badge {
+            background: linear-gradient(135deg, #cd7f32, #a0622a);
+            color: #fff;
+            border: none;
+            box-shadow: 0 4px 20px rgba(205, 127, 50, 0.3);
+            font-size: 24px;
+        }
+
+        /* Photo Section */
+        .photo-section {
+            padding: 16px;
+        }
+
+        .photo-link {
+            display: block;
+            position: relative;
+            width: 190px;
+            height: 240px;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .photo-link:hover {
+            transform: scale(1.03);
+        }
+
+        .photo-link:hover .photo-overlay {
+            opacity: 1;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            position: relative;
+        }
+
+        .photo-placeholder .initial {
+            font-family: 'Outfit', sans-serif;
+            font-size: 48px;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        .photo-placeholder .name-overlay {
+            font-size: 14px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+            z-index: 1;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .photo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .photo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 2;
+        }
+
+        .photo-overlay .sns-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #833AB4, #FD1D1D, #F77737);
+            border-radius: 50px;
+        }
+
+        /* Info Section */
+        .info-section {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .idol-name-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .idol-name {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .idol-group {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 14px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.2));
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #c4b5fd;
+        }
+
+        .idol-reason {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            font-style: italic;
+            padding-left: 12px;
+            border-left: 2px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .idol-stats {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stat-item .stat-icon {
+            font-size: 14px;
+            opacity: 0.6;
+        }
+
+        .stat-item .stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .stat-item .stat-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .song-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.12), rgba(255, 0, 0, 0.06));
+            border: 1px solid rgba(255, 0, 0, 0.2);
+            border-radius: 12px;
+            text-decoration: none;
+            color: #ff6b6b;
+            font-size: 14px;
+            font-weight: 500;
+            transition: var(--transition);
+            width: fit-content;
+        }
+
+        .song-link:hover {
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.2), rgba(255, 0, 0, 0.12));
+            border-color: rgba(255, 0, 0, 0.4);
+            transform: translateX(4px);
+            color: #ff9999;
+        }
+
+        .song-link .play-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: rgba(255, 0, 0, 0.2);
+            font-size: 12px;
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            text-align: center;
+            padding: 60px 20px 40px;
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .footer .disclaimer {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* ===== Animations ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== Scroll Animation ===== */
+        .idol-card {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .idol-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .idol-card.visible:hover {
+            transform: translateY(-4px);
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 900px) {
+            .idol-card {
+                grid-template-columns: auto 1fr;
+                grid-template-rows: auto auto;
+            }
+
+            .photo-section {
+                grid-row: 1 / 3;
+                grid-column: 1;
+                padding: 12px;
+            }
+
+            .photo-link {
+                width: 120px;
+                height: 160px;
+            }
+
+            .photo-placeholder .initial {
+                font-size: 32px;
+            }
+
+            .rank-section {
+                grid-row: 1;
+                grid-column: 2;
+                justify-content: flex-start;
+                padding: 16px 16px 0;
+                min-width: unset;
+            }
+
+            .info-section {
+                grid-row: 2;
+                grid-column: 2;
+                padding: 0 16px 16px;
+            }
+
+            .idol-name {
+                font-size: 18px;
+            }
+
+            .idol-stats {
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px 12px;
+            }
+
+            .criteria-list {
+                grid-template-columns: 1fr;
+            }
+
+            .idol-card {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+            }
+
+            .rank-section {
+                grid-row: 1;
+                grid-column: 1;
+                justify-content: center;
+                padding: 16px;
+            }
+
+            .photo-section {
+                grid-row: 2;
+                grid-column: 1;
+                display: flex;
+                justify-content: center;
+            }
+
+            .photo-link {
+                width: 100%;
+                max-width: 280px;
+                height: 200px;
+            }
+
+            .info-section {
+                grid-row: 3;
+                grid-column: 1;
+                padding: 16px;
+                align-items: center;
+                text-align: center;
+            }
+
+            .idol-name-area {
+                justify-content: center;
+            }
+
+            .idol-reason {
+                text-align: left;
+            }
+
+            .idol-stats {
+                justify-content: center;
+            }
+
+            .rank-badge {
+                width: 44px;
+                height: 44px;
+                font-size: 18px;
+            }
+        }
+
+        /* ===== Gradient Palettes for Idol Photos ===== */
+        .gradient-1 {
+            background: linear-gradient(135deg, #ff6b9d, #c850c0, #6c63ff);
+        }
+
+        .gradient-2 {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .gradient-3 {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+        }
+
+        .gradient-4 {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
+
+        .gradient-5 {
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+        }
+
+        .gradient-6 {
+            background: linear-gradient(135deg, #fa709a, #fee140);
+        }
+
+        .gradient-7 {
+            background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+        }
+
+        .gradient-8 {
+            background: linear-gradient(135deg, #fccb90, #d57eeb);
+        }
+
+        .gradient-9 {
+            background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+        }
+
+        .gradient-10 {
+            background: linear-gradient(135deg, #f5576c, #ff9a9e);
+        }
+
+        .gradient-11 {
+            background: linear-gradient(135deg, #89f7fe, #66a6ff);
+        }
+
+        .gradient-12 {
+            background: linear-gradient(135deg, #fddb92, #d1fdff);
+        }
+
+        .gradient-13 {
+            background: linear-gradient(135deg, #c471f5, #fa71cd);
+        }
+
+        .gradient-14 {
+            background: linear-gradient(135deg, #48c6ef, #6f86d6);
+        }
+
+        .gradient-15 {
+            background: linear-gradient(135deg, #feada6, #f5efef);
+        }
+
+        .gradient-16 {
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+        }
+
+        .gradient-17 {
+            background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+        }
+
+        .gradient-18 {
+            background: linear-gradient(135deg, #d4fc79, #96e6a1);
+        }
+
+        .gradient-19 {
+            background: linear-gradient(135deg, #f6d365, #fda085);
+        }
+
+        .gradient-20 {
+            background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+        }
+
+        /* ===== Back to Top Button ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(139, 92, 246, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Background Effects -->
+    <div class="bg-effects">
+        <div class="bg-orb"></div>
+        <div class="bg-orb"></div>
+        <div class="bg-orb"></div>
+    </div>
+    <div class="particles" id="particles"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="date-badge">
+                <span class="calendar-icon">📅</span>
+                <span>2026년 2월 21일 기준</span>
+            </div>
+            <h1>🇰🇷 여자아이돌 비주얼 TOP 20</h1>
+            <p class="subtitle">대한민국을 대표하는 가장 아름다운 여자 아이돌 비주얼 순위</p>
+        </header>
+
+        <!-- 순위 선정 기준 -->
+        <section class="criteria-section">
+            <div class="criteria-card">
+                <h2><span class="icon">✨</span> 순위 선정 기준</h2>
+                <div class="criteria-list">
+                    <div class="criteria-item">
+                        <span class="num">1</span>
+                        <span class="text"><strong>얼굴 비율 & 이목구비</strong> — 황금 비율의 얼굴과 조화로운 이목구비 평가</span>
+                    </div>
+                    <div class="criteria-item">
+                        <span class="num">2</span>
+                        <span class="text"><strong>대중 인기도</strong> — 팬 투표, SNS 팔로워, 검색량 등 대중 반응</span>
+                    </div>
+                    <div class="criteria-item">
+                        <span class="num">3</span>
+                        <span class="text"><strong>무대 비주얼</strong> — 무대 위에서의 카리스마와 비주얼 임팩트</span>
+                    </div>
+                    <div class="criteria-item">
+                        <span class="num">4</span>
+                        <span class="text"><strong>화보 & 매체 평가</strong> — 패션지, 브랜드 모델 활동 및 매체 선정</span>
+                    </div>
+                    <div class="criteria-item">
+                        <span class="num">5</span>
+                        <span class="text"><strong>독보적 매력</strong> — 다른 아이돌과 차별화되는 고유한 분위기</span>
+                    </div>
+                    <div class="criteria-item">
+                        <span class="num">6</span>
+                        <span class="text"><strong>글로벌 인지도</strong> — 해외 팬덤과 글로벌 미디어에서의 인정</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Idol Rankings -->
+        <main class="idol-grid" id="idolGrid">
+        </main>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="disclaimer">
+            ⚠️ 본 순위는 여러 매체 평가와 대중 의견을 종합하여 작성된 비공식 순위입니다.<br>
+            개인적 의견이 포함되어 있으며, 모든 아이돌은 각자만의 아름다움을 가지고 있습니다. 💖
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+    <script>
+        // ===== Idol Data =====
+        const idols = [
+            {
+                rank: 1,
+                name: "장원영",
+                group: "IVE",
+                age: 21,
+                height: "173cm",
+                birthday: "2004.08.31",
+                song: "Love Dive",
+                songUrl: "https://www.youtube.com/watch?v=Y8JFxS1HlDo",
+                sns: "https://www.instagram.com/for_everyoung10/",
+                reason: "4세대 비주얼 원탑, 완벽한 비율과 인형 같은 외모로 데뷔 이후 압도적인 비주얼 1위를 유지",
+                gradient: "gradient-1",
+                photo: "photos/01_wonyoung.png"
+            },
+            {
+                rank: 2,
+                name: "카리나",
+                group: "aespa",
+                age: 25,
+                height: "168cm",
+                birthday: "2000.04.11",
+                song: "Supernova",
+                songUrl: "https://www.youtube.com/watch?v=pClGmht_oZo",
+                sns: "https://www.instagram.com/katarinabluu/",
+                reason: "AI가 만든 듯한 비현실적 이목구비와 완벽한 얼굴 비율, 차세대 비주얼 아이콘",
+                gradient: "gradient-2",
+                photo: "photos/02_karina.png"
+            },
+            {
+                rank: 3,
+                name: "수지",
+                group: "Solo (前 miss A)",
+                age: 31,
+                height: "168cm",
+                birthday: "1994.10.10",
+                song: "Yes No Maybe",
+                songUrl: "https://www.youtube.com/watch?v=b34ri3-uxks",
+                sns: "https://www.instagram.com/skuukzky/",
+                reason: "국민 첫사랑, 시대를 초월한 청순미로 K-POP 비주얼의 전설적 존재",
+                gradient: "gradient-3",
+                photo: "photos/03_suzy.png"
+            },
+            {
+                rank: 4,
+                name: "지수",
+                group: "BLACKPINK",
+                age: 31,
+                height: "162cm",
+                birthday: "1995.01.03",
+                song: "꽃 (FLOWER)",
+                songUrl: "https://www.youtube.com/watch?v=BEYU1EIRQP8",
+                sns: "https://www.instagram.com/sooyaaa__/",
+                reason: "블랙핑크의 공식 비주얼, 한국 전통미와 현대적 세련미를 겸비한 정통파 미인",
+                gradient: "gradient-4",
+                photo: "photos/04_jisoo.png"
+            },
+            {
+                rank: 5,
+                name: "쯔위",
+                group: "TWICE",
+                age: 26,
+                height: "170cm",
+                birthday: "1999.06.14",
+                song: "Feel Special",
+                songUrl: "https://www.youtube.com/watch?v=3ymwOvzhwHs",
+                sns: "https://www.instagram.com/thinkaboutzu/",
+                reason: "'세계에서 가장 아름다운 얼굴' 선정, 동양적 아름다움의 정수",
+                gradient: "gradient-5",
+                photo: "photos/05_tzuyu.png"
+            },
+            {
+                rank: 6,
+                name: "아이린",
+                group: "Red Velvet",
+                age: 34,
+                height: "158cm",
+                birthday: "1991.03.29",
+                song: "Psycho",
+                songUrl: "https://www.youtube.com/watch?v=uR8Mrt1IpXg",
+                sns: "https://www.instagram.com/raboratory/",
+                reason: "K-POP 역사상 최고의 비주얼 중 한 명, 나이를 초월한 동안 미모의 전설",
+                gradient: "gradient-6",
+                photo: "photos/06_irene.png"
+            },
+            {
+                rank: 7,
+                name: "설윤",
+                group: "NMIXX",
+                age: 22,
+                height: "170cm",
+                birthday: "2004.01.26",
+                song: "Love Me Like This",
+                songUrl: "https://www.youtube.com/watch?v=FrDLz_FhS4U",
+                sns: "https://www.instagram.com/sullyoon_official/",
+                reason: "데뷔 전부터 '비주얼 괴물'로 화제, 압도적인 인형 비주얼과 청순미의 극치",
+                gradient: "gradient-7"
+            },
+            {
+                rank: 8,
+                name: "민지",
+                group: "NewJeans",
+                age: 21,
+                height: "169cm",
+                birthday: "2004.05.07",
+                song: "Hype Boy",
+                songUrl: "https://www.youtube.com/watch?v=11cta61wi0g",
+                sns: "https://www.instagram.com/miaboram/",
+                reason: "청순과 시크를 넘나드는 다재다능한 비주얼, 뉴진스의 센터이자 비주얼 담당",
+                gradient: "gradient-8"
+            },
+            {
+                rank: 9,
+                name: "윈터",
+                group: "aespa",
+                age: 25,
+                height: "163cm",
+                birthday: "2001.01.01",
+                song: "Next Level",
+                songUrl: "https://www.youtube.com/watch?v=4TWR90KJl84",
+                sns: "https://www.instagram.com/imwinter_aespa/",
+                reason: "날카로운 이목구비와 차가운 미모, 에스파의 독보적인 비주얼 라인",
+                gradient: "gradient-9"
+            },
+            {
+                rank: 10,
+                name: "제니",
+                group: "BLACKPINK",
+                age: 30,
+                height: "163cm",
+                birthday: "1996.01.16",
+                song: "SOLO",
+                songUrl: "https://www.youtube.com/watch?v=b73BI9eUkjM",
+                sns: "https://www.instagram.com/jennierubyjane/",
+                reason: "독보적 카리스마와 고급스러운 분위기, '인간 샤넬'이라는 수식어의 주인공",
+                gradient: "gradient-10"
+            },
+            {
+                rank: 11,
+                name: "유나",
+                group: "ITZY",
+                age: 22,
+                height: "170cm",
+                birthday: "2003.12.09",
+                song: "DALLA DALLA",
+                songUrl: "https://www.youtube.com/watch?v=pNfTK39k55U",
+                sns: "https://www.instagram.com/yloey____/",
+                reason: "있지의 비주얼 담당, 밝은 에너지와 빛나는 비주얼을 동시에 겸비",
+                gradient: "gradient-11"
+            },
+            {
+                rank: 12,
+                name: "안유진",
+                group: "IVE",
+                age: 22,
+                height: "172cm",
+                birthday: "2003.09.01",
+                song: "After LIKE",
+                songUrl: "https://www.youtube.com/watch?v=F0B7HDiY-10",
+                sns: "https://www.instagram.com/_yujin_an/",
+                reason: "만능 센터, 뛰어난 리더십과 시원시원한 미모를 겸비한 4세대 대표 아이돌",
+                gradient: "gradient-12"
+            },
+            {
+                rank: 13,
+                name: "미연",
+                group: "(G)I-DLE",
+                age: 29,
+                height: "165cm",
+                birthday: "1997.01.31",
+                song: "Queencard",
+                songUrl: "https://www.youtube.com/watch?v=7BkBHRpMmLo",
+                sns: "https://www.instagram.com/mi_0_miyeon/",
+                reason: "클래식한 한국 미인상의 대표, 정통파 미모와 우아한 분위기의 소유자",
+                gradient: "gradient-13"
+            },
+            {
+                rank: 14,
+                name: "해린",
+                group: "NewJeans",
+                age: 19,
+                height: "165cm",
+                birthday: "2006.05.15",
+                song: "Ditto",
+                songUrl: "https://www.youtube.com/watch?v=pSUydWEqKwE",
+                sns: "https://www.instagram.com/xhrdlsek_2/",
+                reason: "고양이상 비주얼의 정석, 4세대 최고의 신비로운 분위기와 독보적 매력",
+                gradient: "gradient-14"
+            },
+            {
+                rank: 15,
+                name: "나연",
+                group: "TWICE",
+                age: 30,
+                height: "163cm",
+                birthday: "1995.09.22",
+                song: "POP!",
+                songUrl: "https://www.youtube.com/watch?v=f6YDKF0LVWw",
+                sns: "https://www.instagram.com/nayeonyny/",
+                reason: "변하지 않는 동안 미모, 밝은 에너지와 사랑스러운 매력의 대명사",
+                gradient: "gradient-15"
+            },
+            {
+                rank: 16,
+                name: "로제",
+                group: "BLACKPINK",
+                age: 29,
+                height: "168cm",
+                birthday: "1997.02.11",
+                song: "APT.",
+                songUrl: "https://www.youtube.com/watch?v=ekr2nIex040",
+                sns: "https://www.instagram.com/roses_are_rosie/",
+                reason: "독보적인 분위기와 서양적 미모, 몽환적 아름다움으로 글로벌 팬심 사로잡은 아이콘",
+                gradient: "gradient-16"
+            },
+            {
+                rank: 17,
+                name: "카즈하",
+                group: "LE SSERAFIM",
+                age: 22,
+                height: "174cm",
+                birthday: "2003.08.09",
+                song: "ANTIFRAGILE",
+                songUrl: "https://www.youtube.com/watch?v=pyf8cbqyfPs",
+                sns: "https://www.instagram.com/le_sserafim/",
+                reason: "발레리나 출신의 우아한 아름다움, 긴 팔다리 비율과 고혹적인 분위기",
+                gradient: "gradient-17"
+            },
+            {
+                rank: 18,
+                name: "하니",
+                group: "NewJeans",
+                age: 21,
+                height: "162cm",
+                birthday: "2004.10.06",
+                song: "Attention",
+                songUrl: "https://www.youtube.com/watch?v=js1CtxSY38I",
+                sns: "https://www.instagram.com/hanni_pham_/",
+                reason: "호주 출신 글로벌 대세, 사랑스러운 외모와 자연스러운 매력으로 전 세계 팬 사로잡음",
+                gradient: "gradient-18"
+            },
+            {
+                rank: 19,
+                name: "리사",
+                group: "BLACKPINK",
+                age: 28,
+                height: "167cm",
+                birthday: "1997.03.27",
+                song: "ROCKSTAR",
+                songUrl: "https://www.youtube.com/watch?v=VJm0AHOsC20",
+                sns: "https://www.instagram.com/lalalalisa_m/",
+                reason: "독보적 카리스마와 이국적 비주얼, 글로벌 최다 팔로워 K-POP 아이돌",
+                gradient: "gradient-19"
+            },
+            {
+                rank: 20,
+                name: "사쿠라",
+                group: "LE SSERAFIM",
+                age: 27,
+                height: "163cm",
+                birthday: "1998.03.19",
+                song: "FEARLESS",
+                songUrl: "https://www.youtube.com/watch?v=4vbDFu0PUew",
+                sns: "https://www.instagram.com/39saku_chan/",
+                reason: "일본 출신, 꾸준한 노력과 성장으로 만들어낸 아름다움, 동양적 청순미의 상징",
+                gradient: "gradient-20"
+            }
+        ];
+
+        // ===== Render Idol Cards =====
+        function renderIdolCards() {
+            const grid = document.getElementById('idolGrid');
+
+            idols.forEach((idol, index) => {
+                const card = document.createElement('div');
+                card.className = 'idol-card';
+                card.dataset.rank = idol.rank;
+                card.style.animationDelay = `${index * 0.08}s`;
+
+                const medalEmoji = idol.rank === 1 ? '👑' : idol.rank === 2 ? '🥈' : idol.rank === 3 ? '🥉' : '';
+
+                // Build photo content: use img if photo exists, gradient placeholder otherwise
+                const photoContent = idol.photo
+                    ? `<img src="${idol.photo}" alt="${idol.name}" class="photo-img" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder ${idol.gradient}\'><span class=\'initial\'>${idol.name.charAt(0)}</span><span class=\'name-overlay\'>${idol.name}</span></div><div class=\'photo-overlay\'><span class=\'sns-text\'>📸 Instagram</span></div>'">`
+                    : `<div class="photo-placeholder ${idol.gradient}"><span class="initial">${idol.name.charAt(0)}</span><span class="name-overlay">${idol.name}</span></div>`;
+
+                card.innerHTML = `
+                    <div class="rank-section">
+                        <div class="rank-badge">
+                            ${medalEmoji || idol.rank}
+                        </div>
+                    </div>
+                    <div class="photo-section">
+                        <a href="${idol.sns}" target="_blank" rel="noopener noreferrer" class="photo-link" title="${idol.name} 인스타그램 방문">
+                            ${photoContent}
+                            <div class="photo-overlay">
+                                <span class="sns-text">📸 Instagram</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="info-section">
+                        <div class="idol-name-area">
+                            <span class="idol-name">${idol.name}</span>
+                            <span class="idol-group">🎤 ${idol.group}</span>
+                        </div>
+                        <div class="idol-reason">"${idol.reason}"</div>
+                        <div class="idol-stats">
+                            <div class="stat-item">
+                                <span class="stat-icon">🎂</span>
+                                <span class="stat-label">나이</span>
+                                <span class="stat-value">${idol.age}세</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-icon">📏</span>
+                                <span class="stat-label">키</span>
+                                <span class="stat-value">${idol.height}</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-icon">🎵</span>
+                                <span class="stat-label">생년월일</span>
+                                <span class="stat-value">${idol.birthday}</span>
+                            </div>
+                        </div>
+                        <a href="${idol.songUrl}" target="_blank" rel="noopener noreferrer" class="song-link" title="YouTube에서 '${idol.song}' 듣기">
+                            <span class="play-icon">▶</span>
+                            <span>🎧 대표곡: ${idol.song}</span>
+                        </a>
+                    </div>
+                `;
+
+                grid.appendChild(card);
+            });
+        }
+
+        // ===== Scroll Animation =====
+        function handleScrollAnimation() {
+            const cards = document.querySelectorAll('.idol-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            cards.forEach(card => observer.observe(card));
+        }
+
+        // ===== Back to Top Button =====
+        function handleBackToTop() {
+            const btn = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 500) {
+                    btn.classList.add('show');
+                } else {
+                    btn.classList.remove('show');
+                }
+            });
+        }
+
+        // ===== Particles =====
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const count = 30;
+
+            for (let i = 0; i < count; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.animationDuration = `${8 + Math.random() * 12}s`;
+                particle.style.animationDelay = `${Math.random() * 10}s`;
+                particle.style.width = `${2 + Math.random() * 3}px`;
+                particle.style.height = particle.style.width;
+                container.appendChild(particle);
+            }
+        }
+
+        // ===== Init =====
+        document.addEventListener('DOMContentLoaded', () => {
+            renderIdolCards();
+            handleScrollAnimation();
+            handleBackToTop();
+            createParticles();
+        });
+    </script>
+
+</body>
+
+</html>
